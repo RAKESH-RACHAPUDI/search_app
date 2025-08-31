@@ -3,9 +3,19 @@
   margin: 0 auto;
   padding: 20px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
   min-height: 100vh;
   animation: fadeIn 0.8s ease-in-out;
+}
+
+/* Full viewport background */
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  background-attachment: fixed;
+  background-size: cover;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 @keyframes fadeIn {
@@ -77,6 +87,16 @@ h1 {
 .nav-link.active:hover {
   background: linear-gradient(135deg, #ee5a24 0%, #ff6b6b 100%);
   box-shadow: 0 8px 25px rgba(255, 107, 107, 0.5);
+}
+
+/* Page containers for full viewport coverage */
+.search-page, .dashboard-page {
+  min-height: calc(100vh - 40px); /* Account for padding */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 40px;
 }
 
 .search-form {

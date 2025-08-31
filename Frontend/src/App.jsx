@@ -16,8 +16,16 @@ function App() {
         </nav>
 
         <Routes>
-          <Route path="/" element={<Search />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/" element={
+            <div className="search-page">
+              <Search />
+            </div>
+          } />
+          <Route path="/dashboard" element={
+            <div className="dashboard-page">
+              <Dashboard />
+            </div>
+          } />
         </Routes>
       </div>
     </Router>
