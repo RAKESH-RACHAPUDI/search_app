@@ -10,7 +10,8 @@ const PORT = process.env.PORT || 5000;
 // Middleware
 const allowedOrigins = [
   process.env.FRONTEND_URL || 'http://localhost:3000',
-  'https://search-app-q8pv.vercel.app'  // Add your Vercel domain
+  'https://search-app-q8pv.vercel.app',  // Add your Vercel domain
+  'https://search-app-cmd2.vercel.app'   // Added frontend URL to fix CORS
 ];
 
 app.use(cors({
