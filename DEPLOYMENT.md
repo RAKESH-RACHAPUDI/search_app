@@ -146,7 +146,35 @@ npm install
    - Click "Create Resources"
    - DigitalOcean will build and deploy both services
 
-### Option 4: AWS (Advanced)
+### Option 4: Render (Simple Backend Deployment)
+
+#### Backend Deployment (Render)
+1. **Connect Repository:**
+   - Go to [render.com](https://render.com)
+   - Click "New" → "Web Service"
+   - Connect your GitHub repository
+   - **Root Directory:** Leave empty (uses render.yaml)
+   - **Runtime:** Node
+
+2. **Configuration:**
+   - Render will automatically use the `render.yaml` file
+   - Build Command: `cd Backend && npm install`
+   - Start Command: `cd Backend && npm start`
+
+3. **Environment Variables:**
+   ```
+   MONGODB_URI=your_mongodb_atlas_connection_string
+   FRONTEND_URL=https://your-frontend-domain.vercel.app
+   NODE_ENV=production
+   PORT=10000
+   ```
+
+4. **Deploy:**
+   - Click "Create Web Service"
+   - Render will build and deploy your backend
+   - Your API will be available at `https://your-service-name.onrender.com`
+
+### Option 5: AWS (Advanced)
 
 #### Using AWS Amplify (Frontend) + EC2/Elastic Beanstalk (Backend)
 
