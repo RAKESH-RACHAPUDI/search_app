@@ -146,33 +146,39 @@ npm install
    - Click "Create Resources"
    - DigitalOcean will build and deploy both services
 
-### Option 4: Render (Simple Backend Deployment)
+### Option 4: Render (Docker Backend Deployment)
 
-#### Backend Deployment (Render)
+#### Backend Deployment (Render with Docker)
 1. **Connect Repository:**
    - Go to [render.com](https://render.com)
    - Click "New" → "Web Service"
    - Connect your GitHub repository
-   - **Root Directory:** Leave empty (uses render.yaml)
-   - **Runtime:** Node
+   - **Root Directory:** `Backend` (where Dockerfile is located)
+   - **Runtime:** Docker
 
 2. **Configuration:**
-   - Render will automatically use the `render.yaml` file
-   - Build Command: `cd Backend && npm install`
-   - Start Command: `cd Backend && npm start`
+   - Render will automatically detect and use the `Dockerfile`
+   - The Docker container will handle all build and runtime setup
+   - No manual build/start commands needed
 
 3. **Environment Variables:**
    ```
    MONGODB_URI=your_mongodb_atlas_connection_string
    FRONTEND_URL=https://your-frontend-domain.vercel.app
    NODE_ENV=production
-   PORT=10000
+   PORT=5000
    ```
 
 4. **Deploy:**
    - Click "Create Web Service"
-   - Render will build and deploy your backend
+   - Render will build the Docker image and deploy
    - Your API will be available at `https://your-service-name.onrender.com`
+
+#### Alternative: Render with YAML Configuration
+If Docker doesn't work, you can also use the `render.yaml` file:
+- **Root Directory:** Leave empty
+- **Runtime:** Node
+- Render will use the `render.yaml` configuration automatically
 
 ### Option 5: AWS (Advanced)
 
